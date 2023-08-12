@@ -58,3 +58,9 @@ When we build our app using Parcel, it generate a dist folder containing HTML, C
 ## What is browserlists?
 
 A browserlist is a file that specifies which browsers your project should support. This is important because it allows you to target specific browsers with your code, and it can help you to avoid using features that are not supported by older browsers.
+
+## What is the difference between package.json and package-lock.json
+
+The package.json file is a manifest file that describes your project's dependencies. It lists the packages that your project depends on, as well as their versions. The package.json file is used by Node.js to install the dependencies of your project when you run npm install.
+
+The package-lock.json file is a lock file that records the exact versions of the packages that were installed in your project. This is useful because it ensures that your project always uses the same versions of the packages, even if the versions of the packages change in the registry.
