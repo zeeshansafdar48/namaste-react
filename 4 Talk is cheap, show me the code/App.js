@@ -840,6 +840,7 @@ const Header = () => {
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7OCbzvRLLbTMEOxv1E5fFBQ4N2cfJW-PSg6MeEtLJ&s"
           alt="logo"
         />
+        <span>Foodish</span>
       </div>
       <div className="header-container-nav_items">
         <ul className="header-nav_items">
@@ -879,6 +880,7 @@ const Body = () => {
   return (
     <div>
       <Search />
+
       <div className="restaurants-container">
         {restaurants.map((restaurant) => {
           const { id, name, cuisines, avgRating, costForTwo, cloudinaryImageId } = restaurant.info;
