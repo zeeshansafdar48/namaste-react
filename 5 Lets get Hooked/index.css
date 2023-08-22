@@ -38,3 +38,8 @@
   width: 200px;
   height: 200px;
 }
+
+.btn-filter-top-rated {
+  margin: 10px;
+  cursor: pointer;
+}
