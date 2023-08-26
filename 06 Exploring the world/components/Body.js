@@ -3,8 +3,11 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 
+let allRestaurants = [];
+
 const Body = () => {
   const [restaurantsList, setRestaurantsList] = useState([]);
+  const [inputText, setInputText] = useState("");
 
   // useEffect is a Hook and a hook at the end of the day is a normal Javascript function
   useEffect(() => {
@@ -12,21 +15,43 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    console.log("useEffect called");
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
     const json = await data.json();
-    setRestaurantsList(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    allRestaurants = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    setRestaurantsList(allRestaurants);
   };
 
-  if (restaurantsList?.length === 0) {
-    return <Shimmer />;
-  }
-  return (
+  return restaurantsList?.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div>
-      <div>
+      <div className="filter">
+        <div className="search-filter">
+          <input
+            type="text"
+            className="search-text-input"
+            value={inputText}
+            onChange={(e) => {
+              setInputText(e.target.value);
+            }}
+          />
+          <button
+            className="btn-search"
+            onClick={() => {
+              console.log("inputText ==>", inputText);
+              console.log("allRestaurants ==>", allRestaurants);
+              const filteredRestaurantsList = allRestaurants?.filter((res) =>
+                res.info.name.toLowerCase().includes(inputText.toLowerCase())
+              );
+              setRestaurantsList(filteredRestaurantsList);
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
           className="btn-filter-top-rated"
           onClick={() => {
@@ -39,7 +64,7 @@ const Body = () => {
       </div>
 
       <div className="restaurants-container">
-        {restaurantsList.map((restaurant) => {
+        {restaurantsList?.map((restaurant) => {
           const { id, name, cuisines, avgRating, costForTwo, cloudinaryImageId } = restaurant.info;
           return (
             <RestaurantCard
