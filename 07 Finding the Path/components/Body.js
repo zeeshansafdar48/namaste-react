@@ -2,6 +2,7 @@ import Search from "./Search";
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 let allRestaurants = [];
 
@@ -67,14 +68,15 @@ const Body = () => {
         {restaurantsList?.map((restaurant) => {
           const { id, name, cuisines, avgRating, costForTwo, cloudinaryImageId } = restaurant.info;
           return (
-            <RestaurantCard
-              key={id}
-              name={name}
-              cuisines={cuisines}
-              avgRating={avgRating}
-              price={costForTwo}
-              image={cloudinaryImageId}
-            />
+            <Link to={"/restaurant/" + id} key={id}>
+              <RestaurantCard
+                name={name}
+                cuisines={cuisines}
+                avgRating={avgRating}
+                price={costForTwo}
+                image={cloudinaryImageId}
+              />
+            </Link>
           );
         })}
       </div>
