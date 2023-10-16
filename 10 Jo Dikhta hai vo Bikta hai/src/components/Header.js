@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="header-container">
+    <div className="flex bg-pink-50">
       <div className="header-container-logo">
         <img src={LOGO_URL} alt="logo" />
         <span>Foodish</span>
