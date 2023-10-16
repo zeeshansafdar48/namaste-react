@@ -1,0 +1,31 @@
+{
+  "name": "igniting-our-app",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "npx parcel index.html",
+    "build": "npx parcel build index.html",
+    "test": "jest"
+  },
+  "author": "Zeeshan Safdar",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.15.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "@testing-library/react": "^14.0.0",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "parcel": "^2.9.3",
+    "postcss": "^8.4.29",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.3.3"
+  },
+  "browserlists": [
+    "last 5 versions"
+  ]
+}
