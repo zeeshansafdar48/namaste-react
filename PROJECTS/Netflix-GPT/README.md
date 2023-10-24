@@ -3,9 +3,12 @@
 - Create React App with Vite
 - Remove unnecessary code
 - Install Tailwind with Vite
+- Routing
 - Build Header
 - Login Form
 - Sign Up Form
+- Form Validations
+- useRef Hook
 
 ## Features
 
