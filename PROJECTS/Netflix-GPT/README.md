@@ -4,6 +4,8 @@
 - Remove unnecessary code
 - Install Tailwind with Vite
 - Build Header
+- Login Form
+- Sign Up Form
 
 ## Features
 
